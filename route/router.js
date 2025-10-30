@@ -1,0 +1,17 @@
+const UserController=require('../controller/UserController');
+const express=require('express');
+const router=express.Router();
+const upload = require('../middleware/upload');
+const VerifyToken=require('../middleware/TokenVerify');
+router.post('/registerUser',UserController.registerUser);
+router.post('/loginUser',UserController.loginUser);
+router.post('/uploadVideo',VerifyToken,upload,UserController.uploadVideo);
+router.get('/getAllVideos',VerifyToken,UserController.getAllVideos);
+router.get('/getVideoByUserId/:userId',VerifyToken,UserController.getVideoByUserId);
+router.put('/likeVideo/:videoId',VerifyToken,UserController.likeVideo);
+router.put('/dislikeVideo/:videoId',VerifyToken,UserController.dislikeVideo);
+router.post('/commentVideo/:videoId',VerifyToken,UserController.commentVideo);
+router.post('/subscribe/:channelId',VerifyToken,UserController.subscribe);
+router.post('/unsubscribe/:channelId',VerifyToken,UserController.unsubscribe);
+router.delete('/deleteVideo/:id',VerifyToken,UserController.deleteVideo);
+module.exports=router;
