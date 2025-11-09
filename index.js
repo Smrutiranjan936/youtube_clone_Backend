@@ -13,7 +13,7 @@ mongoose.connect('mongodb+srv://msmrutiranjan35:Mallick123@cluster0.ixm9mkf.mong
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:'http://youtube-clone-frontend-nu.vercel.app',
     methods:['GET','POST','PUT','DELETE']
 }))
 app.use('/api',router);
